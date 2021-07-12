@@ -10,6 +10,24 @@
             var res = choices[Math.floor(Math.random() * choices.length)];
             return res;
         }
+
+        function playRound(playerSelection, computerSelection) {
+            var playerSelection = prompt("Rock, paper, or scissors?");
+            var computerSelection = computerPlay();
+
+            if(playerSelection.toLowercase() == "Rock".toLowerCase()) {
+                if(computerSelection == "paper") {
+                    return "Oops! Paper beats rock!"
+                }
+                if(computerSelection == "scissors") {
+                    return "Nice! Rock beats scissors!"
+                }
+                if(computerSelection == "rock") {
+                    return "It's a Tie!"
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
