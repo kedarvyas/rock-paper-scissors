@@ -13,9 +13,9 @@
             return res;
         }
 
-        //     var playerSelection = ("Please select an option: Rock, Paper, Scissors",'');
-        //     var computerSelection = computerPlay();
-        var playerSelection = "rock";
+           //var playerSelection = ("Please select an option: Rock, Paper, Scissors",'');
+        //    var computerSelection = computerPlay();
+        var playerSelection = "scissors";
         var computerSelection = computerPlay();
 
         var pScore = 0;
@@ -25,43 +25,43 @@
 
             if (playerSelection.toLowerCase() == "Rock".toLowerCase()) {
                 if (computerSelection === "Paper") {
-                    return "Oops! Paper beats rock!"
                     cScore++;
+                    return "Oops! Paper beats rock!";
                 }
                 else if (computerSelection === "Scissors") {
-                    return "Nice! Rock beats scissors!"
                     pScore++;
+                    return "Nice! Rock beats scissors!";
                 }
                 else {
-                    return "It's a Tie!"
+                    return "It's a Tie!";
                 }
             }
 
             else if (playerSelection.toLowerCase() === "Paper".toLowerCase()) {
                 if (computerSelection === "Rock") {
-                    return "Woohoo! Paper beats rock!"
                     pScore++;
+                    return "Woohoo! Paper beats rock!";
                 }
                 else if (computerSelection === "Scissors") {
-                    return "Unlucky. Scissors beats paper."
                     cScore++;
+                    return "Unlucky. Scissors beats paper.";
                 }
                 else {
-                    return "Tie."
+                    return "Tie.";
                 }
             }
 
             else if (playerSelection.toLowerCase() === "Scissors".toLowerCase()) {
                 if (computerSelection === "Rock") {
-                    return "Not this time. Rock beats scissors."
                     cScore++;
+                    return "Not this time. Rock beats scissors.";
                 }
                 else if (computerSelection === "Paper") {
-                    return "Sharp! Scissors beats paper!"
                     pScore++;
+                    return "Sharp! Scissors beats paper!";
                 }
                 else {
-                    return "Tie!"
+                    return "Tie!";
                 }
             }
         }
@@ -69,10 +69,21 @@
         function game() {
             var i;
             for (i = 0; i < 5; i++) {
-                playRound();
+                playRound(playerSelection, computerSelection);
+            }
+
+            if(pScore > cScore) {
+                console.log("Congrats! You beat the computer!");
+            }
+            else if(pScore < cScore) {
+                console.log("You were beat by the computer! You'll get em next time.");
+            }
+            else {
+                console.log("Tie game.");
             }
 
         }
+
 
     </script>
 </body>
