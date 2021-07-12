@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Rock Paper Scissors Game</title>
 </head>
+
 <body>
     <script>
         var choices = ['Rock', 'Paper', 'Scissors'];
@@ -11,23 +13,51 @@
             return res;
         }
 
-        function playRound(playerSelection, computerSelection) {
-            var playerSelection = prompt("Rock, paper, or scissors?");
-            var computerSelection = computerPlay();
+        var playerSelection = ("Please select an option: Rock, Paper, Scissors",'');
+        var computerSelection = computerPlay();
 
-            if(playerSelection.toLowercase() == "Rock".toLowerCase()) {
-                if(computerSelection == "paper") {
+        function playRound(playerSelection, computerSelection) {
+
+            if (playerSelection.toLowerCase() == "Rock".toLowerCase()) {
+                if (computerSelection === "Paper") {
                     return "Oops! Paper beats rock!"
                 }
-                if(computerSelection == "scissors") {
+                else if (computerSelection === "Scissors") {
                     return "Nice! Rock beats scissors!"
                 }
-                if(computerSelection == "rock") {
+                else {
                     return "It's a Tie!"
                 }
             }
+
+            else if (playerSelection.toLowerCase() == "Paper".toLowerCase()) {
+                if (computerSelection === "Rock") {
+                    return "Woohoo! Paper beats rock!"
+                }
+                else if (computerSelection === "Scissors") {
+                    return "Unlucky. Scissors beats paper."
+                }
+                else {
+                    return "Tie."
+                }
+            }
+
+            else if (playerSelection.toLowerCase() == "Scissors".toLowerCase()) {
+                if (computerSelection === "Rock") {
+                    return "Not this time. Rock beats scissors."
+                }
+                else if (computerSelection === "Paper") {
+                    return "Sharp! Scissors beats paper!"
+                }
+                else {
+                    return "Tie!"
+                }
+            }
+
+            //console.log(playRound(playerSelection, computerSelection));
         }
 
     </script>
 </body>
+
 </html>
