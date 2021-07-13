@@ -7,23 +7,31 @@
 
 <body>
     <script>
-        var choices = ['Rock', 'Paper', 'Scissors'];
+        let choices = ['Rock', 'Paper', 'Scissors'];
         function computerPlay() {
             var res = choices[Math.floor(Math.random() * choices.length)];
             return res;
         }
 
-           //var playerSelection = ("Please select an option: Rock, Paper, Scissors",'');
-        //    var computerSelection = computerPlay();
-        var playerSelection = "scissors";
-        var computerSelection = computerPlay();
 
+        // var playerSelection = window.prompt("Please select an option: Rock, Paper, Scissors",'');
+        //    var computerSelection = computerPlay();
+        //var playerSelection = "rock";
+        //var computerSelection = computerPlay();
+        let playerSelection;
+        let computerSelection;
         var pScore = 0;
         var cScore = 0;
 
         function playRound(playerSelection, computerSelection) {
 
-            if (playerSelection.toLowerCase() == "Rock".toLowerCase()) {
+            playerSelection = window.prompt("Please select an option: Rock, Paper, Scissors",'');
+            computerSelection = computerPlay();
+
+            playerSelection = playerSelection.toLowerCase();
+            //computerSelection = computerSelection.toLowerCase();
+
+            if (playerSelection == "rock") {
                 if (computerSelection === "Paper") {
                     cScore++;
                     return "Oops! Paper beats rock!";
@@ -37,7 +45,7 @@
                 }
             }
 
-            else if (playerSelection.toLowerCase() === "Paper".toLowerCase()) {
+            else if (playerSelection == "paper") {
                 if (computerSelection === "Rock") {
                     pScore++;
                     return "Woohoo! Paper beats rock!";
@@ -51,7 +59,7 @@
                 }
             }
 
-            else if (playerSelection.toLowerCase() === "Scissors".toLowerCase()) {
+            else if (playerSelection == "scissors") {
                 if (computerSelection === "Rock") {
                     cScore++;
                     return "Not this time. Rock beats scissors.";
@@ -69,13 +77,13 @@
         function game() {
             var i;
             for (i = 0; i < 5; i++) {
-                playRound(playerSelection, computerSelection);
+                console.log(playRound(playerSelection, computerSelection));
             }
 
-            if(pScore > cScore) {
+            if (pScore > cScore) {
                 console.log("Congrats! You beat the computer!");
             }
-            else if(pScore < cScore) {
+            else if (pScore < cScore) {
                 console.log("You were beat by the computer! You'll get em next time.");
             }
             else {
