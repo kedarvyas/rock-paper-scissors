@@ -6,8 +6,18 @@
 </head>
 
 <body>
+    <div class="optButtons">
+        <input type="button" value="rock"></input>
+        <input type="button" value="paper"></input>
+        <input type="button" value="scissors"></input>
+    </div>
+
+    <div class = "results">Results</div>
+
     <script>
         let choices = ['Rock', 'Paper', 'Scissors'];
+        const buttons = document.querySelectorAll('input');
+
         function computerPlay() {
             var res = choices[Math.floor(Math.random() * choices.length)];
             return res;
@@ -17,11 +27,13 @@
         let computerSelection;
         var pScore = 0;
         var cScore = 0;
+        const res;
 
         function playRound(playerSelection, computerSelection) {
 
-            playerSelection = window.prompt("Please select an option: Rock, Paper, Scissors",'');
+            //playerSelection = window.prompt("Please select an option: Rock, Paper, Scissors", '');
             computerSelection = computerPlay();
+            res = "";
 
             playerSelection = playerSelection.toLowerCase();
 
@@ -66,26 +78,43 @@
                     return "Tie!";
                 }
             }
-        }
 
-        function game() {
-            var i;
-            for (i = 0; i < 5; i++) {
-                console.log(playRound(playerSelection, computerSelection));
-            }
+            
 
-            if (pScore > cScore) {
-                console.log("Congrats! You beat the computer!");
-            }
-            else if (pScore < cScore) {
-                console.log("You were beat by the computer! You'll get em next time.");
-            }
-            else {
-                console.log("Tie game.");
-            }
+            document.getElementById('result').innerHTML = result
+            return;
 
         }
 
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                playRound(button.value)
+            })
+        })
+
+        function checkWinner() {
+
+        }
+
+/*
+                function game() {
+                    var i;
+                    for (i = 0; i < 5; i++) {
+                        console.log(playRound(playerSelection, computerSelection));
+                    }
+        
+                    if (pScore > cScore) {
+                        console.log("Congrats! You beat the computer!");
+                    }
+                    else if (pScore < cScore) {
+                        console.log("You were beat by the computer! You'll get em next time.");
+                    }
+                    else {
+                        console.log("Tie game.");
+                    }
+        
+                }
+        */
     </script>
 </body>
 
